@@ -1,0 +1,26 @@
+events {
+    worker_connections 1024;
+}
+
+http {
+    map_hash_bucket_size 128; # Adjust as needed
+    map $subdomain $upstream {
+        test-cops_sahiiil1406 "http://127.0.0.1:5000";
+        test_sahiiil1406 "http://127.0.0.1:5002";
+    }
+
+    server {
+        listen 80;
+        server_name ~^(?<subdomain>[^.]+)\.localhost$;
+
+        location / {
+            if ($upstream = "") {
+                return 404 "No such subdomain";
+            }
+            proxy_pass $upstream;
+            proxy_set_header Host $host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+    }
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Container List</title>
+    <style>
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        li {
+            background: #fff;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease-in-out;
+        }
+
+        li:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        li strong {
+            display: block;
+            font-weight: 600;
+            margin-top: 10px;
+            color: #34495e;
+        }
+
+        li span {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .empty-message {
+            text-align: center;
+            color: #e74c3c;
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 600px) {
+            h2 {
+                font-size: 1.5rem;
+            }
+            ul {
+                padding: 10px;
+            }
+            li {
+                padding: 15px;
+                margin: 10px 0;
+            }
+            li strong {
+                font-size: 1rem;
+            }
+            li span {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h2>Container List</h2>
+    <ul>
+        {% for container in container_list %}
+            <li>
+                <strong>ID:</strong> <span>{{ container.id }}</span><br>
+                <strong>Image Name:</strong> <span>{{ container.image_name }}</span><br>
+                <strong>Image Port:</strong> <span>{{ container.image_port }}</span><br>
+                <strong>Work:</strong> <span>{{ container.work }}</span><br>
+                <strong>Container ID:</strong> <span>{{ container.container_id }}</span><br>
+                <strong>URL:</strong> <span><a href="{{ container.deployed_url }}" target="_blank">{{ container.deployed_url }}</a></span>
+            </li>
+        {% empty %}
+            <li class="empty-message">No containers available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

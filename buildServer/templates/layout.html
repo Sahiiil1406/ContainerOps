@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    {% block title%}
+      
+    {%endblock%}
+  </title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    input{
+      color: black !important;
+      width: 100%;
+    }
+  </style>
+
+</head>
+<body class="min-h-screen bg-[black] text-5xl flex items-center justify-center">
+  
+  <nav class="bg-[rgb(234,235,224)] text-[black] text-2xl h-[50px] fixed w-full p-2.5 top-[0%]">
+    {% block navbar%}
+    {% endblock %}
+  </nav>
+
+  <main class="text-2xl p-20 top-5 text-white">
+    {%block content%}
+    {% endblock %}
+  </main>
+
+</body>
+</html>

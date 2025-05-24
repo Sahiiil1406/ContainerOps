@@ -1,0 +1,118 @@
+# Python compiled files
+*.pyc
+*.pyo
+__pycache__/
+*.pyd
+
+# Virtual environments
+venv/
+.env/
+.envrc
+.Python
+*.env
+
+# Django stuff
+db.sqlite3
+*.sqlite3
+media/
+staticfiles/
+
+# Logs
+*.log
+*.pot
+*.py[cod]
+*.pyd
+*.sqlite3-shm
+*.sqlite3-wal
+*.cover
+*.log
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Django stuff:
+*.pot
+*.py[cod]
+*.sqlite3
+/media
+/static
+/staticfiles
+
+# Coverage reports
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Pytest
+.cache/
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*~
+
+# macOS system files
+.DS_Store
+
+# Windows thumbnail cache files
+Thumbs.db
+ehthumbs.db
+
+# pyenv
+.python-version
+
+# Celery
+celerybeat-schedule
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Django migrations
+*.log
+*.pot
+migrations/
+
+# Local.env
+*.env

@@ -1,0 +1,48 @@
+{% extends 'layout.html'%}
+
+{% block title%}
+  Hello
+{%endblock%}
+
+{% block navbar %}
+
+  {% comment %} Have the logout button only when you have logged in {% endcomment %}
+  {%if user.is_authenticated%}
+
+  <a href="{%url 'api:fetch_giturl'%}" class="no-underline">
+
+    <button type="submit" class="no-underline text-2xl text-[black] rounded-[5px] border-0">Deploy</button> | 
+  </a>  
+
+  <a href="{%url 'api:logout'%}" class="no-underline">
+
+    <button type="submit" class="no-underline text-2xl text-[black] rounded-[5px] border-0">Logout</button> | 
+  </a> 
+
+
+  {%else%}
+  
+      
+  <a href="{%url 'api:signup'%}" class="no-underline">
+
+    <button type="submit" class="no-underline text-2xl text-[black] rounded-[5px] border-0">Signup</button> | 
+  </a> 
+
+  <a href="{%url 'api:login'%}" class="no-underline" >
+
+    <button type="submit" class="no-underline text-2xl text-[black] rounded-[5px] border-0">Login</button> | 
+  </a> 
+
+  {%endif%}
+
+{%endblock%}
+
+{%block content%}
+  {%if user.is_authenticated%}
+
+    Hii {{user.username}}!
+
+  {%else%}
+    Hello
+  {%endif%}
+{% endblock %}

@@ -1,0 +1,42 @@
+version: "3.8"
+
+networks:
+  app_network:
+
+volumes:
+  nginx_config:  
+
+services:
+  nginx:
+    image: nginx:latest
+    container_name: nginx_proxy
+    network_mode: "host"  # Full access to host network
+    volumes:
+      - nginx_config:/etc/nginx
+    restart: always
+
+  build_server:
+    build:
+      context: ./buildServer
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./buildServer:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+      - nginx_config:/etc/nginx
+    restart: always
+    network_mode: "host"
+
+  proxy_server:
+    build:
+      context: ./proxy_server
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./proxy_server:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+      - nginx_config:/etc/nginx
+    restart: always
+    network_mode: "host"
+    environment:
+      - ALLOWED_HOSTS=proxy_server,localhost,127.0.0.1,*
