@@ -1,5 +1,7 @@
 # ContainerOps
 
+[![ContainerOps Demo](https://img.shields.io/badge/▶️-Watch%20Demo-red?style=for-the-badge)](https://github.com/user-attachments/assets/3634dca0-dfd0-4c35-a828-cf2b67e0f702)
+
 [![Django](https://img.shields.io/badge/Django-3.2-green.svg)](https://www.djangoproject.com/)
 [![Docker](https://img.shields.io/badge/Docker-20.10-blue.svg)](https://www.docker.com/)
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
